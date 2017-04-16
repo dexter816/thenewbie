@@ -17,7 +17,15 @@ def main():
 
  s = shelve.open("drows.db") 
 
+ for item in s['0']:
+     fname = (s['0'][item])
+     if fname in globals():
+         from inspect import signatureImportError: cannot import name signature
 
+
+         sig = signature(eval(fname))
+         print("%s is a function with arguments %s" % (fname,sig))
+    
  for item in s:
      if item != '0':
       print(item + ": " + str(s[item]))
@@ -27,7 +35,8 @@ def delrow(s, rowkey):
       del s[rowkey]
   except:
          pass
-    
+def lumberjack(job, play='', status='OKay'):
+    return"i,m Okay"
 
 
 if __name__ == "__main__":
